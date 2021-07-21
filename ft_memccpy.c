@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memccpy.c                                          :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 13:38:57 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/06/19 14:01:03 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:39:06 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memccpy(char *s1, char *s2, char c, size_t n)
+#include "libft.h"
+
+void	*ft_memccpy(void *s1, const void *s2, char c, size_t n)
 {
 	unsigned long	i;
+	char			*one;
+	char			*two;
 
 	i = 0;
+	one = (char *)s1;
+	two = (char *)s2;
 	while (i < n)
 	{
-		s1[i] = s2[i];
-		if (s2[i] == c)
+		one[i] = two[i];
+		if (two[i] == c)
 			return (&(s1[i + 1]));
 		i++;
 	}

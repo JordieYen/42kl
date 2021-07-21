@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcpy.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 16:18:06 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/06/01 19:20:13 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/18 20:38:39 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+unsigned long	ft_strlcpy(void *dest, const void *src, unsigned int l)
 {
-	int	i;
+	unsigned long	i;
+	char			*d;
+	char			*s;
 
 	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-unsigned long	ft_strlcpy(char *dest, char *src, unsigned int l)
-{
-	unsigned int	i;
-	unsigned int	destlen;
-	unsigned int	srclen;
-
-	i = 0;
-	destlen = ft_strlen(dest);
-	srclen = ft_strlen(src);
-	while (i < (l - 1))
+	d = (char *)dest;
+	s = (char *)src;
+	if (!src)
+		return (0);
+	if (l == 0)
 	{
-		dest[i] = src[i];
+		while (s[i] != '\0')
+			i++;
+		return (i);
+	}
+	while (i < (l - 1) && s[i] != '\0')
+	{
+		d[i] = s[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (srclen);
+	if (i < l)
+		d[i] = '\0';
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

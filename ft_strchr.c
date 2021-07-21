@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strchr.c                                           :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 18:32:57 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/06/02 18:53:52 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/19 18:16:22 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *str, int chr)
+#include "libft.h"
+
+char	*ft_strchr(const char *str, int chr)
 {
-	int	i;
+	int		i;
+	char	c;
+	char	*s;
 
 	i = 0;
-	while (str[i] != '\0')
+	c = chr;
+	s = (char *)str;
+	while (s[i] != '\0')
 	{
 		if (chr == '\0')
 		{
-			if (str[i + 1] == '\0')
-				return (&str[i + 1]);
+			if (s[i + 1] == '\0')
+				return (&s[i + 1]);
 		}
-		if (str[i] == chr)
-			return (&str[i]);
+		if (s[i] == c)
+			return (&s[i]);
 		i++;
 	}
 	return (0);

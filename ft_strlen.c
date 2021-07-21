@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jking-ye <jking-ye@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:05:08 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/04/29 12:37:08 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:45:56 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+int	ft_strlen(const void *str)
 {
-	int	i;
+	int		i;
+	char	*s;
 
 	i = 0;
-	while (str[i] != '\0')
+	s = (char *)str;
+	while (s[i] != '\0')
 		i++;
 	return (i);
 }

@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:42:07 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/05/29 19:32:12 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/12 00:40:09 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strnstr(char *hay, const char *needle, unsigned int n)
 {
@@ -16,6 +18,8 @@ char	*ft_strnstr(char *hay, const char *needle, unsigned int n)
 	unsigned int	j;
 
 	i = 0;
+	if (*needle == 0)
+		return (hay);
 	while (hay[i] != '\0' && i < n)
 	{
 		j = 0;

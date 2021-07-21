@@ -1,21 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itoa.c                                             :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 01:05:52 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/07/03 02:12:39 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/21 11:31:43 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char	*numtostring(int i, long k, int isneg, char *ptr)
+static	int	countnum(long n)
 {
-	ptr[i + 1] = '\0';
+	int	i;
+
+	i = 0;
+	if (n > 0)
+	{
+		while (n > 0)
+		{
+			n = n / 10;
+			i++;
+		}
+	}
+	else
+	{
+		while (n < 0)
+		{
+			n = n / 10;
+			i++;
+		}
+	}
+	return (i);
+}
+
+static	char	*numtostring(int i, long k, char *ptr)
+{
+	int	isneg;
+
+	isneg = 0;
+	if (k < 0)
+	{
+		k = k * -1;
+		isneg = 1;
+	}
+	ptr[i] = '\0';
 	i--;
+	if (k == 0)
+	{
+		ptr[0] = 48;
+		return (ptr);
+	}
 	while (i >= 0)
 	{
 		if (isneg == 1 && i == 0)
@@ -32,26 +69,23 @@ char	*ft_itoa(int n)
 {
 	char	*ptr;
 	int		i;
-	long	j;
 	long	k;
-	int		isneg;
 
 	i = 0;
-	isneg = 0;
 	k = n;
 	if (k < 0)
-	{
 		i = 1;
-		isneg = 1;
-		k = k * -1;
-	}
-	j = k;
-	while (j >= 1)
+	if (n == 0)
 	{
-		j = j / 10;
-		i++;
+		ptr = malloc(2);
+		ptr = numtostring(1, 0, ptr);
 	}
-	ptr = malloc(i + 1);
-	ptr = numtostring(i, k, isneg, ptr);
+	else
+	{
+		ptr = malloc(countnum(k) + i + 1);
+		if (!ptr)
+			return (0);
+		ptr = numtostring(countnum(k) + i, k, ptr);
+	}
 	return (ptr);
 }

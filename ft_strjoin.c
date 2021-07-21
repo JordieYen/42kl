@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strjoin.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:21:31 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/06/28 19:32:28 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:44:08 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(const void *s1, const void *s2)
 {
 	char	*ptr;
 	int		i;
-	int		lenone;
-	int		lentwo;
+	char	*one;
+	char	*two;
 
 	i = 0;
-	lenone = 0;
-	lentwo = 0;
-	while (s1[lenone] != '\0')
-		lenone++;
-	while (s2[lentwo] != '\0')
-		lentwo++;
-	ptr = malloc(lenone +lentwo);
-	while (i < lenone)
+	one = (char *)s1;
+	two = (char *)s2;
+	ptr = malloc(ft_strlen(one) + ft_strlen(two) + 1);
+	if (!ptr)
+		return (0);
+	while (one[i] != '\0')
 	{
-		ptr[i] = s1[i];
+		ptr[i] = one[i];
 		i++;
 	}
 	i = 0;
-	while (i < lentwo)
+	while (two[i] != '\0')
 	{
-		ptr[lenone + i] = s2[i];
+		ptr[ft_strlen(one) + i] = two[i];
 		i++;
 	}
+	ptr[ft_strlen(one) + i] = '\0';
 	return (ptr);
 }

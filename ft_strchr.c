@@ -6,7 +6,7 @@
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 18:32:57 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/07/19 18:16:22 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/21 15:12:20 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strchr(const char *str, int chr)
 	i = 0;
 	c = chr;
 	s = (char *)str;
+	if (chr == '\0')
+		return (&s[ft_strlen(s)]);
 	while (s[i] != '\0')
 	{
 		if (chr == '\0')

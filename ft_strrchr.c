@@ -6,7 +6,7 @@
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:32:41 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/07/11 17:29:29 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/21 15:10:29 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strrchr(char *str, int c)
 	i = 0;
 	p = 0;
 	chr = c;
+	if (chr == '\0')
+		return (&str[ft_strlen(str)]);
 	while (str[i] != '\0')
 	{
 		if (str[i] == chr)

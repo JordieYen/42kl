@@ -6,17 +6,11 @@
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 14:18:33 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/07/21 11:31:06 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/24 19:11:46 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static	void	useless(int i, int j)
-{
-	i++;
-	j++;
-}
 
 static	int	wordcount(const char *s, char c)
 {
@@ -50,7 +44,7 @@ char	**ft_split(const char *s, char c)
 
 	i = 0;
 	k = 0;
-	ptr = malloc((wordcount(s, c) + 1) * 8);
+	ptr = ft_calloc((wordcount(s, c) + 1), 8);
 	if (!ptr || !s)
 		return (0);
 	while (s[i] != '\0')
@@ -58,13 +52,13 @@ char	**ft_split(const char *s, char c)
 		if (s[i] != c)
 		{
 			j = 0;
-			while (s[i + 1] != c && s[i + 1] != '\0')
-				useless(i++, j++);
+			while (s[i + j + 1] != c && s[i + j + 1] != '\0')
+				j++;
+			i = i + j;
 			ptr[k] = malloc(j);
 			ft_strlcpy(ptr[k++], &(s[i - j]), j + 2);
 		}
 		i++;
 	}
-	ptr[k] = 0;
 	return (ptr);
 }

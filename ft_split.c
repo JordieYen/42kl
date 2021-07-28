@@ -6,7 +6,7 @@
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 14:18:33 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/07/24 19:11:46 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/28 18:22:12 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	k = 0;
 	ptr = ft_calloc((wordcount(s, c) + 1), 8);
-	if (!ptr || !s)
+	if (!ptr)
 		return (0);
 	while (s[i] != '\0')
 	{

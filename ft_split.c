@@ -6,7 +6,7 @@
 /*   By: jking-ye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 14:18:33 by jking-ye          #+#    #+#             */
-/*   Updated: 2021/07/29 10:58:19 by jking-ye         ###   ########.fr       */
+/*   Updated: 2021/07/29 11:03:48 by jking-ye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static	int	wordcount(const char *s, char c)
 	return (count);
 }
 
-static int wordlen(const char *str, char c)
+static	int	wordlen(const char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i + 1] != c && str[i + 1] != '\0')
